@@ -30,7 +30,7 @@ class Chapter5StreamPractice {
                 .collect(Collectors.toList());
     }
 
-    public static List<Trader> test3(Collection<? extends Transaction> transactions) {
+    static List<Trader> test3(Collection<? extends Transaction> transactions) {
         return transactions.stream()
                 .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
                 .map(Transaction::getTrader)
@@ -38,32 +38,32 @@ class Chapter5StreamPractice {
                 .collect(Collectors.toList());
     }
 
-    public static List<String> test4(Collection<? extends Transaction> transactions) {
+    static List<String> test4(Collection<? extends Transaction> transactions) {
         return transactions.stream()
                 .map(transaction -> transaction.getTrader().getName())
                 .sorted(CharSequence::compare)
                 .collect(Collectors.toList());
     }
 
-    public static boolean test5(Collection<? extends Transaction> transactions) {
+    static boolean test5(Collection<? extends Transaction> transactions) {
         return transactions.stream()
                 .anyMatch(transaction -> Objects.equals(transaction.getTrader().getCity(), "Milan"));
     }
 
-    public static void test6(Collection<? extends Transaction> transactions) {
+    static void test6(Collection<? extends Transaction> transactions) {
         transactions.stream()
                 .filter(transaction -> transaction.getTrader().getCity().equals("Cambridge"))
                 .map(Transaction::getValue)
                 .forEach(System.out::println);
     }
 
-    public static OptionalInt test7(Collection<? extends Transaction> transactions) {
+    static OptionalInt test7(Collection<? extends Transaction> transactions) {
         return transactions.stream()
                 .mapToInt(Transaction::getValue)
                 .max();
     }
 
-    public static OptionalInt test8(Collection<? extends Transaction> transactions) {
+    static OptionalInt test8(Collection<? extends Transaction> transactions) {
         return transactions.stream()
                 .mapToInt(Transaction::getValue)
                 .min();
