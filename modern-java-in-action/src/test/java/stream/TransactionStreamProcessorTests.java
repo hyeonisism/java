@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-class Chapter5StreamPracticeTests {
+class TransactionStreamProcessorTests {
 
     private List<Transaction> transactions;
 
@@ -38,7 +38,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test1() {
         // when
-        List<Transaction> result = Chapter5StreamPractice.test1(transactions);
+        List<Transaction> result = TransactionStreamProcessor.test1(transactions);
 
         // then
         assertThat(result.stream()
@@ -51,7 +51,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test2() {
         // when
-        List<String> result = Chapter5StreamPractice.test2(transactions);
+        List<String> result = TransactionStreamProcessor.test2(transactions);
 
         // then
         assertThat(result).containsOnlyOnce(result.toArray(String[]::new));
@@ -61,7 +61,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test3() {
         // when
-        List<Trader> result = Chapter5StreamPractice.test3(transactions);
+        List<Trader> result = TransactionStreamProcessor.test3(transactions);
 
         // then
         assertThat(result.stream()
@@ -79,7 +79,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test4() {
         // when
-        List<String> result = Chapter5StreamPractice.test4(transactions);
+        List<String> result = TransactionStreamProcessor.test4(transactions);
 
         // then
         assertThat(result).isSortedAccordingTo(CharSequence::compare);
@@ -88,7 +88,7 @@ class Chapter5StreamPracticeTests {
     @DisplayName("밀라노에 거래자가 있는가?")
     @Test
     void test5() {
-        assertThat(Chapter5StreamPractice.test5(transactions)).isTrue();
+        assertThat(TransactionStreamProcessor.test5(transactions)).isTrue();
     }
 
     @DisplayName("케임브리지에 거주하는 거래자의 모든 트랜잭션값을 출력하시오")
@@ -99,7 +99,7 @@ class Chapter5StreamPracticeTests {
         System.setOut(new PrintStream(out));
 
         // when
-        Chapter5StreamPractice.test6(transactions);
+        TransactionStreamProcessor.test6(transactions);
 
         // then
         assertThat(out.toString())
@@ -115,7 +115,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test7() {
         // when
-        OptionalInt result = Chapter5StreamPractice.test7(transactions);
+        OptionalInt result = TransactionStreamProcessor.test7(transactions);
 
         // then
         assertThat(result).isEqualTo(OptionalInt.of(1000));
@@ -125,7 +125,7 @@ class Chapter5StreamPracticeTests {
     @Test
     void test8() {
         // when
-        OptionalInt result = Chapter5StreamPractice.test8(transactions);
+        OptionalInt result = TransactionStreamProcessor.test8(transactions);
 
         // then
         assertThat(result).isEqualTo(OptionalInt.of(300));

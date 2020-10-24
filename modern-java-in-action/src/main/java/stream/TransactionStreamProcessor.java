@@ -9,9 +9,9 @@ import java.util.stream.Collectors;
 
 import static java.util.Comparator.comparingInt;
 
-class Chapter5StreamPractice {
+class TransactionStreamProcessor {
 
-    private Chapter5StreamPractice() {
+    private TransactionStreamProcessor() {
         throw new IllegalStateException("Utility class");
     }
 
